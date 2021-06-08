@@ -27,8 +27,18 @@
             <h3>{{film.title}}</h3>
             <h4>{{film.original_title}}</h4>
             <span>{{film.original_language}}</span>
-            <img :src="'https://flagcdn.com/16x12/' + film.original_language + '.png'" alt="">
+            <img :src="'https://flagcdn.com/w40/' + film.original_language + '.png'" alt="">
             <span>{{film.vote_average}}</span>
+          </div>
+        </div>
+
+        <div id="main_tv">
+          <div class="tv" v-for='serie in serieTv'>
+            <h3>{{serie.name}}</h3>
+            <h4>{{serie.original_name}}</h4>
+            <span>{{serie.original_language}}</span>
+            <img :src="'https://flagcdn.com/w40/' + serie.original_language + '.png'" alt="">
+            <span>{{serie.vote_average}}</span>            
           </div>
         </div>
           
