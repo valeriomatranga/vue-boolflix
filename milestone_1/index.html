@@ -19,15 +19,17 @@
         <div id="search_bar">
           <form action="search">
             <input type="text" placeholder="Scrivi qui!" v-model="ricerca">
-            <button @click="search">Cerca</button>
           </form>
-          <div id="main_film">
-            <div class="film" v-for="film in films">
-              <h3>{{film.title}}</h3>
-              <h4>{{film.original_title}}</h4>
-              <span>{{film.original_language}}</span>
-              <span>{{film.vote_average}}</span>
-            </div>
+          <button @click="search">Cerca</button>
+        </div>
+
+          
+        <div id="main_film">
+          <div class="film" v-for="film in films" v-if="film.visible">
+            <h3>{{film.title}}</h3>
+            <h4>{{film.original_title}}</h4>
+            <span>{{film.original_language}}</span>
+            <span>{{film.vote_average}}</span>
           </div>
         </div>
           

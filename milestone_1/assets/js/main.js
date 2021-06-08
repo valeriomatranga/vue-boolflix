@@ -15,7 +15,7 @@ const app = new Vue({
             const ricercaFilms = this.ricerca.toLowerCase();
             this.films.forEach(film => {
                 const titoloFilm = film.title.toLowerCase();
-                console.log(titoloFilm);
+                //console.log(titoloFilm);
                 if(titoloFilm.includes(ricercaFilms)){
                     film.visible = true;
                 }else{
