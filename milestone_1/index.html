@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>boolflix</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,6 +16,20 @@
   </head>
   <body>
       <div id="app">
+        <div id="search_bar">
+          <form action="search">
+            <input type="text" placeholder="Scrivi qui!" v-model="ricerca">
+            <button @click="search">Cerca</button>
+          </form>
+          <div id="main_film">
+            <div class="film" v-for="film in films">
+              <h3>{{film.title}}</h3>
+              <h4>{{film.original_title}}</h4>
+              <span>{{film.original_language}}</span>
+              <span>{{film.vote_average}}</span>
+            </div>
+          </div>
+        </div>
           
       </div>
     <!-- CDN vue js -->
