@@ -37,6 +37,7 @@
                 <span><strong>Titolo originale: </strong> {{film.original_title}}</span><br>
                 <img :src="'https://flagcdn.com/w40/' + film.original_language + '.png'" alt="">
                 <span><strong>Voto: </strong>{{film.vote_average}}</span>
+                <i v-for="i in getVote(film.vote_average)" :class="stars >= 2 ? 'fas' : 'far'" class=" fa-star"></i>
                 <p><strong>Overview:</strong>{{film.overview}}</p>
               </div>
             </div>
