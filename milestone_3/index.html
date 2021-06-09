@@ -18,6 +18,7 @@
       <div id="app">
         <header>
           <div>
+            <h1>Boolflix</h1>
           </div>
           <div id="search_bar">
             <input type="text" placeholder="Scrivi qui!" v-model="query">
@@ -27,26 +28,32 @@
 
         <main>
 
+          <h2>film</h2>
           <div id="main_film">
             <div class="film" v-for="film in films">
+              <img class="poster" :src="urlImg + film.poster_path" alt="">
               <div class="info">
                 <span><strong>Titolo: </strong> {{film.title}}</span><hr>
                 <span><strong>Titolo originale: </strong> {{film.original_title}}</span>
                 <span>{{film.original_language}}</span>
                 <img :src="'https://flagcdn.com/w40/' + film.original_language + '.png'" alt="">
                 <span><strong>Voto: </strong>{{film.vote_average}}</span>
+                <p><strong>Overview:</strong>{{film.overview}}</p>
               </div>
             </div>
           </div>
 
+          <h2>serie tv</h2>
           <div id="main_tv">
             <div class="tv" v-for='serie in serieTv'>
+              <img class="poster" :src="urlImg + serie.poster_path" alt="">
               <div class="info">
                 <span><strong>Titolo: </strong> {{serie.name}}</span><hr>
                 <span><strong>Titolo originale: </strong> {{serie.original_name}}</span>
                 <span>{{serie.original_language}}</span>
                 <img :src="'https://flagcdn.com/w40/' + serie.original_language + '.png'" alt="">
                 <span><strong>Voto: </strong> {{serie.vote_average}}</span>
+                <p>{{serie.overview}}</p>            
               </div>
             </div>
           </div>
