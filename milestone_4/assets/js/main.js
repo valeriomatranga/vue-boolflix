@@ -7,12 +7,10 @@ const app = new Vue({
         tv:"tv",
         apikey:"0399f6a1aef262ecdd313571205ae96f",
         urlImg:'http://image.tmdb.org/t/p/w342/',
-        urlPeople:'https://api.themoviedb.org/3/person/',
         query: '',
         films:[],
         serieTv:[],
-        getVote: '',
-        stars:null
+        imgRotta:"./assets/img/film.png"
 
     },
 
@@ -25,7 +23,6 @@ const app = new Vue({
             .then(resp =>{
                 this.films = resp.data.results
                 console.log(this.films);
-                console.log(this.getVote);
             });
 
             const tv = `${this.url}${this.tv}?api_key=${this.apikey}&query=${this.query}`;
@@ -37,12 +34,6 @@ const app = new Vue({
                 console.log(this.serieTv);
             });
 
-            axios
-            .all([films,serieTv])
-            .then(resp =>{
-                this.stars = resp.data.results.vote_average
-                console.log(this.stars);
-            })
             
         },
         

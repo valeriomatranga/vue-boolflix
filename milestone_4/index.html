@@ -21,38 +21,45 @@
             <h1>Boolflix</h1>
           </div>
           <div id="search_bar">
-            <input type="text" placeholder="Scrivi qui!" v-model="query">
-            <button @click="search">Cerca</button>
+            <input type="text" placeholder="Scrivi qui la tua ricerca!" v-model="query" @keyup.enter='search'>
+            <i id="lente" class="fas fa-search"></i>
           </div>
         </header>
 
         <main>
 
-          <h2>film</h2>
+          <h2 v-show='films.length > 0'>film</h2>
           <div id="main_film">
             <div class="film" v-for="film in films">
-              <img class="poster" :src="urlImg + film.poster_path" alt="">
+              <img class="poster" :src="urlImg + film.poster_path" alt="" style="width: 342px; height:513px;">
               <div class="info">
                 <span><strong>Titolo: </strong> {{film.title}}</span><br>
                 <span><strong>Titolo originale: </strong> {{film.original_title}}</span><br>
                 <img :src="'https://flagcdn.com/w40/' + film.original_language + '.png'" alt="">
-                <span><strong>Voto: </strong>{{film.vote_average}}</span>
-                <i v-for="i in getVote(film.vote_average)" :class="stars >= 2 ? 'fas' : 'far'" class=" fa-star"></i>
+                <span>
+                <strong>Voto:</strong> 
+                <i v-for="i in Math.floor(film.vote_average / 2)" class="fas fa-star" style="color: goldenrod"></i>
+                <i v-for="i in (5 - Math.floor(film.vote_average / 2 ))" class="far fa-star" style="color: goldenrod"></i>
+                </span>
                 <p><strong>Overview:</strong>{{film.overview}}</p>
               </div>
             </div>
           </div>
 
-          <h2>serie tv</h2>
+          <h2 v-show='serieTv.length > 0'>serie tv</h2>
           <div id="main_tv">
             <div class="tv" v-for='serie in serieTv'>
-              <img class="poster" :src="urlImg + serie.poster_path" alt="">
+              <img class="poster" :src="urlImg + serie.poster_path" alt="immagine non disponibile" style="width: 342px; height:513px;">
               <div class="info">
                 <span><strong>Titolo: </strong> {{serie.name}}</span><br>
                 <span><strong>Titolo originale: </strong> {{serie.original_name}}</span><br>
                 <img :src="'https://flagcdn.com/w40/' + serie.original_language + '.png'" alt="">
-                <span><strong>Voto: </strong> {{serie.vote_average}}</span>
-                <p>{{serie.overview}}</p>            
+                <span>
+                  <strong>Voto:</strong>
+                  <i v-for="i in Math.floor(serie.vote_average / 2)" class="fas fa-star" style="color: goldenrod"></i>
+                  <i v-for="i in (5 - Math.floor(serie.vote_average / 2 ))" class="far fa-star" style="color: goldenrod"></i>
+                </span>
+                <p><strong>Overview: </strong>{{serie.overview}}</p>            
               </div>
             </div>
           </div>
