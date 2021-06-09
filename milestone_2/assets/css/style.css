@@ -37,3 +37,21 @@ h2{
 .film, .tv{
     margin: 10px;
 }
+
+.poster{
+    box-shadow: 0px 0px 0px 2px white;
+    cursor: pointer;
+}
+
+.info{
+    display: none;
+    background-color: black;
+    color: white;
+    width: 342px;
+    height: 513px;
+}
+
+.poster:hover .info{
+    display: block;
+    z-index: 1;
+}
