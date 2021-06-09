@@ -33,7 +33,7 @@
             <div class="film" v-for="film in films">
               <img class="poster" :src="urlImg + film.poster_path" alt="">
               <div class="info">
-                <span><strong>Titolo: </strong> {{film.title}}</span><hr>
+                <span><strong>Titolo: </strong> {{film.title}}</span><br>
                 <span><strong>Titolo originale: </strong> {{film.original_title}}</span>
                 <span>{{film.original_language}}</span>
                 <img :src="'https://flagcdn.com/w40/' + film.original_language + '.png'" alt="">
@@ -48,7 +48,7 @@
             <div class="tv" v-for='serie in serieTv'>
               <img class="poster" :src="urlImg + serie.poster_path" alt="">
               <div class="info">
-                <span><strong>Titolo: </strong> {{serie.name}}</span><hr>
+                <span><strong>Titolo: </strong> {{serie.name}}</span><br>
                 <span><strong>Titolo originale: </strong> {{serie.original_name}}</span>
                 <span>{{serie.original_language}}</span>
                 <img :src="'https://flagcdn.com/w40/' + serie.original_language + '.png'" alt="">
