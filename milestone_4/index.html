@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>boolflix</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CDN fontawesom -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- style css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+      <div id="app">
+        <header>
+          <div>
+            <h1>Boolflix</h1>
+          </div>
+          <div id="search_bar">
+            <input type="text" placeholder="Scrivi qui!" v-model="query">
+            <button @click="search">Cerca</button>
+          </div>
+        </header>
+
+        <main>
+
+          <h2>film</h2>
+          <div id="main_film">
+            <div class="film" v-for="film in films">
+              <img class="poster" :src="urlImg + film.poster_path" alt="">
+              <div class="info">
+                <span><strong>Titolo: </strong> {{film.title}}</span><br>
+                <span><strong>Titolo originale: </strong> {{film.original_title}}</span><br>
+                <img :src="'https://flagcdn.com/w40/' + film.original_language + '.png'" alt="">
+                <span><strong>Voto: </strong>{{film.vote_average}}</span>
+                <p><strong>Overview:</strong>{{film.overview}}</p>
+              </div>
+            </div>
+          </div>
+
+          <h2>serie tv</h2>
+          <div id="main_tv">
+            <div class="tv" v-for='serie in serieTv'>
+              <img class="poster" :src="urlImg + serie.poster_path" alt="">
+              <div class="info">
+                <span><strong>Titolo: </strong> {{serie.name}}</span><br>
+                <span><strong>Titolo originale: </strong> {{serie.original_name}}</span><br>
+                <img :src="'https://flagcdn.com/w40/' + serie.original_language + '.png'" alt="">
+                <span><strong>Voto: </strong> {{serie.vote_average}}</span>
+                <p>{{serie.overview}}</p>            
+              </div>
+            </div>
+          </div>
+
+        </main>
+          
+      </div>
+    <!-- CDN vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- CDN ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- main js -->
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
