@@ -6,6 +6,7 @@ const app = new Vue({
         movie:"movie",
         tv:"tv",
         apikey:"0399f6a1aef262ecdd313571205ae96f",
+        urlImg:'http://image.tmdb.org/t/p/w342/',
         query: '',
         films:[],
         serieTv:[]
@@ -39,7 +40,6 @@ const app = new Vue({
     },
 
     mounted(){
-        this.search()
         
 
     },

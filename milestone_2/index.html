@@ -16,31 +16,43 @@
   </head>
   <body>
       <div id="app">
-        <div id="search_bar">
-          <input type="text" placeholder="Scrivi qui!" v-model="query">
-          <button @click="search">Cerca</button>
-        </div>
-
-          
-        <div id="main_film">
-          <div class="film" v-for="film in films">
-            <h3>{{film.title}}</h3>
-            <h4>{{film.original_title}}</h4>
-            <span>{{film.original_language}}</span>
-            <img :src="'https://flagcdn.com/w40/' + film.original_language + '.png'" alt="">
-            <span>{{film.vote_average}}</span>
+        <header>
+          <div>
+            <h1>Boolflix</h1>
           </div>
-        </div>
-
-        <div id="main_tv">
-          <div class="tv" v-for='serie in serieTv'>
-            <h3>{{serie.name}}</h3>
-            <h4>{{serie.original_name}}</h4>
-            <span>{{serie.original_language}}</span>
-            <img :src="'https://flagcdn.com/w40/' + serie.original_language + '.png'" alt="">
-            <span>{{serie.vote_average}}</span>            
+          <div id="search_bar">
+            <input type="text" placeholder="Scrivi qui!" v-model="query">
+            <button @click="search">Cerca</button>
           </div>
-        </div>
+        </header>
+
+        <main>
+
+          <h2>film</h2>
+          <div id="main_film">
+            <div class="film" v-for="film in films">
+              <img :src="urlImg + film.poster_path" alt="">
+              <h3>{{film.title}}</h3>
+              <h4>{{film.original_title}}</h4>
+              <span>{{film.original_language}}</span>
+              <img :src="'https://flagcdn.com/w40/' + film.original_language + '.png'" alt="">
+              <span>{{film.vote_average}}</span>
+            </div>
+          </div>
+
+          <h2>serie tv</h2>
+          <div id="main_tv">
+            <div class="tv" v-for='serie in serieTv'>
+              <img :src="urlImg + serie.poster_path" alt="">
+              <h3>{{serie.name}}</h3>
+              <h4>{{serie.original_name}}</h4>
+              <span>{{serie.original_language}}</span>
+              <img :src="'https://flagcdn.com/w40/' + serie.original_language + '.png'" alt="">
+              <span>{{serie.vote_average}}</span>            
+            </div>
+          </div>
+
+        </main>
           
       </div>
     <!-- CDN vue js -->
