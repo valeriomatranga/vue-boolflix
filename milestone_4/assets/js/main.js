@@ -10,14 +10,16 @@ const app = new Vue({
         query: '',
         films:[],
         serieTv:[],
-        imgRotta:"./assets/img/film.png"
+        imgRotta:"./assets/img/film.png",
+        cast:'',
+        languageCode:''
 
     },
 
     methods:{
         search(){
             const film = `${this.url}${this.movie}?api_key=${this.apikey}&query=${this.query}`;
-            console.log(film);
+            //console.log(film);
             axios
             .get(film)
             .then(resp =>{
@@ -33,8 +35,11 @@ const app = new Vue({
                 this.serieTv = resp.data.results
                 console.log(this.serieTv);
             });
-
             
+
+            lingua(serie.original_language){
+                
+            }
         },
         
     },

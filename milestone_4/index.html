@@ -53,7 +53,7 @@
               <div class="info">
                 <span><strong>Titolo: </strong> {{serie.name}}</span><br>
                 <span><strong>Titolo originale: </strong> {{serie.original_name}}</span><br>
-                <img :src="'https://flagcdn.com/w40/' + serie.original_language + '.png'" alt="">
+                <img :src="'https://flagcdn.com/w40/' + lingua(code) + '.png'" alt="">
                 <span>
                   <strong>Voto:</strong>
                   <i v-for="i in Math.floor(serie.vote_average / 2)" class="fas fa-star" style="color: goldenrod"></i>
