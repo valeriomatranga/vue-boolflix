@@ -12,7 +12,6 @@ const app = new Vue({
         serieTv:[],
         imgRotta:"./assets/img/film.png",
         cast:'',
-        languageCode:''
 
     },
 
@@ -35,21 +34,10 @@ const app = new Vue({
                 this.serieTv = resp.data.results
                 console.log(this.serieTv);
             });
+        
             
-
-            lingua(serie.original_language){
-                
-            }
         },
         
     },
 
-    mounted(){
-        
-
-    },
-
-    computed:{
-
-    }
 })

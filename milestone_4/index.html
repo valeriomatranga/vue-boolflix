@@ -31,7 +31,8 @@
           <h2 v-show='films.length > 0'>film</h2>
           <div id="main_film">
             <div class="film" v-for="film in films">
-              <img class="poster" :src="urlImg + film.poster_path" alt="" style="width: 342px; height:513px;">
+              <img v-if='film.poster_path != null' class="poster" :src="urlImg + film.poster_path" alt="" style="width: 342px; height:513px;">
+              <img v-else class="noPoster" src="./assets/img/film.png" alt="">
               <div class="info">
                 <span><strong>Titolo: </strong> {{film.title}}</span><br>
                 <span><strong>Titolo originale: </strong> {{film.original_title}}</span><br>
@@ -49,11 +50,15 @@
           <h2 v-show='serieTv.length > 0'>serie tv</h2>
           <div id="main_tv">
             <div class="tv" v-for='serie in serieTv'>
-              <img class="poster" :src="urlImg + serie.poster_path" alt="immagine non disponibile" style="width: 342px; height:513px;">
+              <img v-if='serie.poster_path != null' class="poster" :src="urlImg + serie.poster_path" alt="immagine non disponibile" style="width: 342px; height:513px;">
+              <div v-else>
+                <img class="noPoster" src="./assets/img/film.png" alt="immagine non disponibile">
+              </div>
               <div class="info">
                 <span><strong>Titolo: </strong> {{serie.name}}</span><br>
                 <span><strong>Titolo originale: </strong> {{serie.original_name}}</span><br>
-                <img :src="'https://flagcdn.com/w40/' + lingua(code) + '.png'" alt="">
+                <span>Language: <strong class="lingua">{{serie.original_language}}</strong></span>
+                <img :src="'https://flagcdn.com/w40/' + serie.original_language + '.png'" alt="">
                 <span>
                   <strong>Voto:</strong>
                   <i v-for="i in Math.floor(serie.vote_average / 2)" class="fas fa-star" style="color: goldenrod"></i>
